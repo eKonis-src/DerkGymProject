@@ -72,11 +72,11 @@ weights = np.load('weights.npy') if os.path.isfile('weights.npy') else None
 biases = np.load('biases.npy') if os.path.isfile('biases.npy') else None
 
 networks = [Network(weights, biases) for i in range(env.n_agents)]
-env.mode = 'train'
+#env.mode = 'train'
 total_reward = 0
 
 
-for e in range(30):
+for e in range(10):
   observation_n = env.reset()
   while True:
     action_n = [networks[i].forward(observation_n[i]) for i in range(env.n_agents)]
